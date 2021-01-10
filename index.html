@@ -10,11 +10,64 @@
 </head>
 <!--
     *Some sort of heading or navbar for weatherdasboard
-    *Side bar: Searchfor city, then spots fo buttons
+    *Side bar: Searchfor city, then spots fo buttons --ASIDE 
+    id = citySearch 
     *Main content: City Heading with date image of that temp//all one, //this is same size different lines - Temp F, Humidtity %, windspeed MPH, UV index text is highlighted
     *5-Day Forecast
 -->
+<nav class="navbar navbar-light bg-light">
+    <span class="navbar-brand mb-0 h1">Weather Dashboard</span>
+</nav>
+<!--
+<div class="container">-->
+<div class="row">
+    <div class="col-3">
 
+        <div class="card">
+            <div class="card-body">
+                
+                <label for="citySearch">Search Term: </label>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" aria-label="citySearch" aria-describedby="searchBtn" id="citySearch">
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="button" id="searchBtn">search</button>
+                    </div>
+                  </div>
+                
+
+
+
+                <p> populate cities </p>
+            </div>
+          </div>
+       
+
+
+    </div>
+    <div class="col-9">
+       
+     <div class="row">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="selectedCity">City here</h1>
+                <p class="card-text" id="temperature">Temperature:</p>
+                <p class="card-text" id="humidity">Humidity:</p>
+                <p class="card-text" id="windSpeed">Wind Speed:</p>
+                <p class="card-text" id="uvIndex">UV Index:</p> 
+            </div>
+         </div>
+     </div>
+
+       <div class="row">
+           <h1 class="forecast">5 Day Forecast: </h1>
+       </div>
+
+    </div>
+
+<!--ends row-->
+</div>
+<!--ends container
+</div>-->
 
 <scripts>
     <script src="./scripts/script.js"></script>
