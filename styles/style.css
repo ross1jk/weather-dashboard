@@ -1,0 +1,40 @@
+/*
+Search field/button
+id = citySearch 
+id = searchBtn
+***need to make each city a button
+*Main content: 
+id=cityDisplay 
+id=selectedCity //City Heading with date image of that temp//all one, 
+this is same size different lines - 
+
+Temp F, Humidtity %, windspeed MPH, UV index text is highlighted
+id=temperature
+id=humidity
+id=windSpeed
+id=uvIndex
+*5-Day Forecast */
+
+#navBar{
+    background-color: rgb(80, 78, 78);
+    height: 75px;
+}
+
+#navHead{
+    color: white; 
+    text-align: right;
+    font-size: 40px;
+}
+
+.card {
+    margin-top: 20px; 
+    margin-bottom: 20px; 
+}
+
+#searchedCities{
+    margin-left: 20px; 
+}
+
+#cityDisplay{
+    margin-right: 20px; 
+}

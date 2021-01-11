@@ -12,18 +12,23 @@
     *Some sort of heading or navbar for weatherdasboard
     *Side bar: Searchfor city, then spots fo buttons --ASIDE 
     id = citySearch 
-    *Main content: City Heading with date image of that temp//all one, //this is same size different lines - Temp F, Humidtity %, windspeed MPH, UV index text is highlighted
+    *Main content: id=cityDisplay City Heading with date image of that temp//all one, 
+    this is same size different lines - Temp F, Humidtity %, windspeed MPH, UV index text is highlighted
+    id=temperature
+    id=humidity
+    id=windSpeed
+    id=uvIndex
     *5-Day Forecast
 -->
-<nav class="navbar navbar-light bg-light">
-    <span class="navbar-brand mb-0 h1">Weather Dashboard</span>
+<nav class="navbar navbar-light" id="navBar">
+    <span class="navbar-brand mb-0 h1" id="navHead">Weather Dashboard</span>
 </nav>
-<!--
+<!-- 
 <div class="container">-->
 <div class="row">
     <div class="col-3">
 
-        <div class="card">
+        <div class="card" id="searchedCities">
             <div class="card-body">
                 
                 <label for="citySearch">Search Term: </label>
@@ -46,8 +51,8 @@
     </div>
     <div class="col-9">
        
-     <div class="row">
-        <div class="card">
+    
+        <div class="card" id="cityDisplay">
             <div class="card-body">
                 <h1 class="selectedCity">City here</h1>
                 <p class="card-text" id="temperature">Temperature:</p>
@@ -56,11 +61,10 @@
                 <p class="card-text" id="uvIndex">UV Index:</p> 
             </div>
          </div>
-     </div>
+     
 
-       <div class="row">
-           <h1 class="forecast">5 Day Forecast: </h1>
-       </div>
+       <h1 class="forecast">5 Day Forecast: </h1>
+     
 
     </div>
 
