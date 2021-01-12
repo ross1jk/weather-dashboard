@@ -4,7 +4,9 @@ $(function() {
  var cities = [];
  
  //working for pulling info for one citty, gotta figure out how to filter for mulitple. 
- var city = "Las Vegas"; 
+ 
+ function displayCityInfo(){
+ var city= $(this).attr("data-name"); 
  var queryURL = "http://api.openweathermap.org/data/2.5/find?q=" + city + "&units=imperial&appid=101220419d85ffb610459f1145df78ff";
 
  $.ajax({
@@ -12,20 +14,25 @@ $(function() {
  method: "GET"
  }).then(function(response) {
    console.log(response);
-  // $("form").append(JSON.stringify(response)); 
- });
+   $("#selectedCity").text(response.list[0].name + " Time" + " Icon");
+   $("#temperature").text("Temperature: " + response.list[0].main.temp + " Fahrenheit"); 
+   $("#humidity").text("Humidity: " + response.list[0].main.humidity + " %"); 
+   $("#windSpeed").text("Wind Speed: " + response.list[0].wind.speed + " MPH"); 
+  // $("#uvIndex").text("UV Index: " + response.list)
+});
+ }; 
 
-
-
-/*Looping through the array of cities 
+//Looping through the array of cities 
+function renderButtons(){
 for (var i = 0; i < cities.length; i++) {
     var a = $("<button>");
     a.addClass("city");
     a.attr("data-name", cities[i]);
     a.text(cities[i]);
     // Adding the button to the buttons-view div
-    $("pastCities").append(a);
-  } */
+    $("#pastCities").append(a);
+  } 
+}
 
 $("#searchBtn").on("click", function(event) {
     event.preventDefault();
@@ -34,11 +41,12 @@ $("#searchBtn").on("click", function(event) {
     // The city from the textbox is then added to array
     cities.push(city);
     console.log(cities); 
+    renderButtons(); 
    });
  
    
 
- // $(document).on("click", ".city", displayCityInfo);
+ $(document).on("click", ".city", displayCityInfo);
 //end of document.ready*/
 }); 
 /*
