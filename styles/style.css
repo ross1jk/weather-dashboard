@@ -38,3 +38,7 @@ id=uvIndex
 #cityDisplay{
     margin-right: 20px; 
 }
+ /*buttons*/
+.city{
+    width: 100%; 
+}

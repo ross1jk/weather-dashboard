@@ -61,7 +61,7 @@ $("#humidity5").text("Humidity: " + response.list[31].main.humidity + " %");
 function renderButtons(){
 for (var i = 0; i < cities.length; i++) {
     var a = $("<button>");
-    a.addClass("city");
+    a.addClass("city btn btn-light");
     a.attr("data-name", cities[i]);
     a.text(cities[i]);
     // Adding the button to the buttons-view div
