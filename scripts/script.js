@@ -6,14 +6,17 @@ var cities = [];
  function displayCityInfo(){
  var city= $(this).attr("data-name"); 
  var queryURL = "http://api.openweathermap.org/data/2.5/find?q=" + city + "&units=imperial&appid=101220419d85ffb610459f1145df78ff";
- var queryURL5Day = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=101220419d85ffb610459f1145df78ff"
+ var queryURL5Day = "http://api.openweathermap.org/data/2.5/forecast?q=" + city + "&units=imperial&appid=101220419d85ffb610459f1145df78ff";
+ 
 
  $.ajax({
  url: queryURL,
  method: "GET"
  }).then(function(response) {
   //Current Day
-   $("#selectedCity").text(response.list[0].name + " Time" + " Icon");
+  let currentWeather = "http://openweathermap.org/img/wn/" + response.list[0].weather[0].icon + "@2x.png"; 
+   $("#icon").attr('src', currentWeather); 
+   $("#selectedCity").text(response.list[0].name + " Time");
    $("#temperature").text("Temperature: " + response.list[0].main.temp + " Fahrenheit"); 
    $("#humidity").text("Humidity: " + response.list[0].main.humidity + " %"); 
    $("#windSpeed").text("Wind Speed: " + response.list[0].wind.speed + " MPH"); 
