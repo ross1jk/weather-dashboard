@@ -12,16 +12,15 @@ var cities = [];
  url: queryURL,
  method: "GET"
  }).then(function(response) {
-   console.log(response);
+  //Current Day
    $("#selectedCity").text(response.list[0].name + " Time" + " Icon");
    $("#temperature").text("Temperature: " + response.list[0].main.temp + " Fahrenheit"); 
    $("#humidity").text("Humidity: " + response.list[0].main.humidity + " %"); 
    $("#windSpeed").text("Wind Speed: " + response.list[0].wind.speed + " MPH"); 
   // $("#uvIndex").text("UV Index: " + response.list)
-
-  //5 day
- (response.list[0].name); 
+  
 });
+//5 day
 $.ajax({
   url: queryURL5Day, 
   method: "GET"
