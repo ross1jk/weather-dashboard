@@ -32,25 +32,25 @@ $("#day1").text(response.list[0].dt_txt);
 $("#temp1").text("Temperature: "+ response.list[0].main.temp + " Fahrenheit");
 $("#humidity1").text("Humidity: " + response.list[0].main.humidity + " %"); 
 //day 2
-$("#day2").text(response.list[0].dt_txt); 
+$("#day2").text(response.list[7].dt_txt); 
 //image
-$("#temp2").text("Temperature: "+ response.list[0].main.temp + " Fahrenheit");
-$("#humidity2").text("Humidity: " + response.list[0].main.humidity + " %"); 
+$("#temp2").text("Temperature: "+ response.list[7].main.temp + " Fahrenheit");
+$("#humidity2").text("Humidity: " + response.list[7].main.humidity + " %"); 
 //day 3
-$("#day3").text(response.list[0].dt_txt); 
+$("#day3").text(response.list[15].dt_txt); 
 //image
-$("#temp3").text("Temperature: "+ response.list[0].main.temp + " Fahrenheit");
-$("#humidity3").text("Humidity: " + response.list[0].main.humidity + " %"); 
+$("#temp3").text("Temperature: "+ response.list[15].main.temp + " Fahrenheit");
+$("#humidity3").text("Humidity: " + response.list[15].main.humidity + " %"); 
 //day 4
-$("#day4").text(response.list[0].dt_txt); 
+$("#day4").text(response.list[23].dt_txt); 
 //image
-$("#temp4").text("Temperature: "+ response.list[0].main.temp + " Fahrenheit");
-$("#humidity4").text("Humidity: " + response.list[0].main.humidity + " %"); 
+$("#temp4").text("Temperature: "+ response.list[23].main.temp + " Fahrenheit");
+$("#humidity4").text("Humidity: " + response.list[23].main.humidity + " %"); 
 //day 5
-$("#day5").text(response.list[0].dt_txt); 
+$("#day5").text(response.list[31].dt_txt); 
 //image
-$("#temp5").text("Temperature: "+ response.list[0].main.temp + " Fahrenheit");
-$("#humidity5").text("Humidity: " + response.list[0].main.humidity + " %"); 
+$("#temp5").text("Temperature: "+ response.list[31].main.temp + " Fahrenheit");
+$("#humidity5").text("Humidity: " + response.list[31].main.humidity + " %"); 
 });
  }
 
