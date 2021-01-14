@@ -82,7 +82,7 @@ $("#searchBtn").on("click", function(event) {
     renderButtons(); 
    });
  
-   
+renderButtons();
 $(document).on("click", ".city", displayCityInfo);
 //end of document.ready*/
 }); 
