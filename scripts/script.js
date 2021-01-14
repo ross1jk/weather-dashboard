@@ -1,7 +1,7 @@
 $(function() {
 
  // Initial array of cities
-var cities = [];
+var cityHistory = JSON.parse(localStorage.getItem("cities")) || []; 
 var currentDate = moment().format('l'); 
 
  function displayCityInfo(){
@@ -55,16 +55,17 @@ $("#icon5").attr("src", "http://openweathermap.org/img/wn/" + response.list[31].
 $("#temp5").text("Temperature: "+ response.list[31].main.temp + " Fahrenheit");
 $("#humidity5").text("Humidity: " + response.list[31].main.humidity + " %"); 
 });
- }
+ } 
+  
 
 
 //Looping through the array of cities 
 function renderButtons(){
-for (var i = 0; i < cities.length; i++) {
+for (var i = 0; i < cityHistory.length; i++) {
     var a = $("<button>");
     a.addClass("city btn btn-light");
-    a.attr("data-name", cities[i]);
-    a.text(cities[i]);
+    a.attr("data-name", cityHistory[i]);
+    a.text(cityHistory[i]);
     // Adding the button to the buttons-view div
     $("#pastCities").append(a);
   } 
@@ -77,12 +78,13 @@ $("#searchBtn").on("click", function(event) {
     // This line grabs the input from the textbox
     var city = $("#citySearch").val().trim();
     // The city from the textbox is then added to array
-    cities.push(city);
-    localStorage.setItem("cities", cities); 
+    cityHistory.push(city);
+    localStorage.setItem("cities", JSON.stringify(cityHistory)); 
     renderButtons(); 
+    console.log(cityHistory); 
    });
  
-renderButtons();
+
 $(document).on("click", ".city", displayCityInfo);
 //end of document.ready*/
 }); 
