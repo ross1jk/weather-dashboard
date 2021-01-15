@@ -69,7 +69,7 @@ var currentDate = moment().format('l');
 
 
 //Looping through the array of cities 
-function renderButtons(){
+
 for (var i = 0; i < cityHistory.length; i++) {
     var a = $("<button>");
     a.addClass("city btn btn-light");
@@ -78,19 +78,17 @@ for (var i = 0; i < cityHistory.length; i++) {
     // Adding the button to the buttons-view div
     $("#pastCities").append(a);
   } 
-}
+
 
 $("#searchBtn").on("click", function(event) {
     event.preventDefault();
-   //why isnt this stopping it
     event.stopPropagation();
     // This line grabs the input from the textbox
     var city = $("#citySearch").val().trim();
     // The city from the textbox is then added to array
     cityHistory.push(city);
     localStorage.setItem("cities", JSON.stringify(cityHistory)); 
-    renderButtons(); 
-    console.log(cityHistory); 
+    displayCityInfo();
    });
 
 //why isnt working? 
