@@ -26,9 +26,16 @@ id=uvIndex
     font-size: 40px;
 }
 
+label{
+    font-size: 18px; 
+}
+
 .card {
     margin-top: 20px; 
     margin-bottom: 20px; 
+}
+.card-text{
+    font-size: 20px;
 }
 
 #searchedCities{
@@ -39,6 +46,15 @@ id=uvIndex
     margin-right: 20px; 
 }
  /*buttons*/
-.city{
+ .city{
     width: 100%; 
+    font-size: 18px; 
+    margin: 1px; 
 }
+ /*5 Day Forecast*/
+ #fiveday{
+     width: 170px; 
+     text-align: center; 
+     margin: 10px; 
+     font-size: 18px;
+ }

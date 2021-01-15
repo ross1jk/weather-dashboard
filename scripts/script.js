@@ -1,7 +1,8 @@
 $(function() {
 
- // Initial array of cities
+//Initial array of cities (set from local storage memory)
 var cityHistory = JSON.parse(localStorage.getItem("cities")) || []; 
+//current date code need to find a better option 
 var currentDate = moment().format('l'); 
 
  function displayCityInfo(){
@@ -68,7 +69,7 @@ var currentDate = moment().format('l');
  
 
 
-//Looping through the array of cities 
+//Intial appending of buttons from local storage
 for (var i = 0; i < cityHistory.length; i++) {
     var a = $("<button>");
     a.addClass("city btn btn-light");
@@ -78,7 +79,7 @@ for (var i = 0; i < cityHistory.length; i++) {
     $("#pastCities").append(a);
   } 
 
-
+//serach button 
 $("#searchBtn").on("click", function(event) {
     event.preventDefault();
     event.stopPropagation();
@@ -101,6 +102,10 @@ $(document).on("click", "#searchBtn", displayCityInfo);
 $(document).on("click", ".city", displayCityInfo);
 //end of document.ready*/
 }); 
+
+
+
+
 /*
 Search field/button
 id = citySearch 
