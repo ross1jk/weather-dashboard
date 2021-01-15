@@ -69,7 +69,6 @@ var currentDate = moment().format('l');
 
 
 //Looping through the array of cities 
-
 for (var i = 0; i < cityHistory.length; i++) {
     var a = $("<button>");
     a.addClass("city btn btn-light");
@@ -88,6 +87,12 @@ $("#searchBtn").on("click", function(event) {
     // The city from the textbox is then added to array
     cityHistory.push(city);
     localStorage.setItem("cities", JSON.stringify(cityHistory)); 
+    //create button
+    var b = $("<button>");
+    b.addClass("city btn btn-light");
+    b.attr("data-name", city);
+    b.text(city);
+    $("#pastCities").append(b); 
     displayCityInfo();
    });
 
