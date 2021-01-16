@@ -25,7 +25,7 @@ Once the the weather dashboard is open you will be presented with the last searc
 
 Please note, the buttons must be double clicked in order to render the weather information on the page. 
 
-Please alo see my special notes for consdieration for code. 
+Please also see my special notes for consdieration for code. 
 
 ## Deployed Application
 
