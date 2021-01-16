@@ -6,7 +6,9 @@ var cityHistory = JSON.parse(localStorage.getItem("cities")) || [];
 var currentDate = moment().format('l'); 
 
  function displayCityInfo(){
- var city= $(this).attr("data-name");
+  
+ var city= $(this).attr("data-name") || "Flint"; 
+
  var geoCode = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=101220419d85ffb610459f1145df78ff" 
 
  $.ajax({
@@ -111,11 +113,10 @@ $("#searchBtn").on("click", function(event) {
     b.attr("data-name", city);
     b.text(city);
     $("#pastCities").append(b); 
-    displayCityInfo(); 
    }
    );
   
-//$(document).ready(displayCityInfo()); 
+$(document).ready(displayCityInfo()); 
 $(document).on("click", ".city", displayCityInfo);
 //end of document.ready*/
 }); 
