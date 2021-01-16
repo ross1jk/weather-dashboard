@@ -6,14 +6,13 @@ var cityHistory = JSON.parse(localStorage.getItem("cities")) || [];
 var currentDate = moment().format('l'); 
 
  function displayCityInfo(){
- var city= $(this).attr("data-name"); 
+ var city= $(this).attr("data-name");
  var geoCode = "http://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=101220419d85ffb610459f1145df78ff" 
 
  $.ajax({
    url: geoCode,
    method: "GET"
  }).then(function(response){
-   console.log(response); 
    var lat = response[0].lat
    var lon = response[0].lon
    var queryURL = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=101220419d85ffb610459f1145df78ff"
@@ -29,7 +28,6 @@ var currentDate = moment().format('l');
     $("#temperature").text("Temperature: " + response.current.temp + " Fahrenheit"); 
     $("#humidity").text("Humidity: " + response.current.humidity + " %"); 
     $("#windSpeed").text("Wind Speed: " + response.current.wind_speed + " MPH"); 
-    $("#uvIndex").text("UV Index: " + response.current.uvi); 
     //5Day
     //day 1 
     $("#day1").text(moment(currentDate).add('1', 'day').format('l')); 
@@ -62,12 +60,33 @@ var currentDate = moment().format('l');
     $("#humidity5").text("Humidity: " + response.daily[4].humidity + " %"); 
   
   });
+   let uvi = "http://api.openweathermap.org/data/2.5/uvi?lat=" + lat + "&lon=" + lon +"&appid=101220419d85ffb610459f1145df78ff"
+   $.ajax({
+     url: uvi, 
+     method: "GET"
+   }).then(function(response){
+    var index;
+    index = response.value; 
+    $("#uvIndex").text("UV Index: " + index); 
+    if (index == "1" || "2") {
+        $("#uvIndex").css("background-color", "green");
+    }else if (index == "3" || "4" || "5"){
+      $("#uvIndex").css("background-color", "yellow");
+    }else if (index == "6" || "7"){
+      $("#uvIndex").css("background-color", "orange");
+    }else if (index == "8" || "9" || "10"){
+      $("#uvIndex").css("background-color", "red");
+    }else{
+      $("#uvIndex").css("background-color", "purple");
+    }
+
+   });
+
 
    });
   };
 
  
-
 
 //Intial appending of buttons from local storage
 for (var i = 0; i < cityHistory.length; i++) {
@@ -85,6 +104,8 @@ $("#searchBtn").on("click", function(event) {
     event.stopPropagation();
     // This line grabs the input from the textbox
     var city = $("#citySearch").val().trim();
+    //search button value
+     $("#searchBtn").attr("data-name", city); 
     // The city from the textbox is then added to array
     cityHistory.push(city);
     localStorage.setItem("cities", JSON.stringify(cityHistory)); 
@@ -94,11 +115,11 @@ $("#searchBtn").on("click", function(event) {
     b.attr("data-name", city);
     b.text(city);
     $("#pastCities").append(b); 
-    displayCityInfo();
-   });
-
-//why isnt working? 
-$(document).on("click", "#searchBtn", displayCityInfo); 
+    displayCityInfo(); 
+   }
+   );
+  
+//$(document).ready(displayCityInfo()); 
 $(document).on("click", ".city", displayCityInfo);
 //end of document.ready*/
 }); 
