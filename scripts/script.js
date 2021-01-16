@@ -8,7 +8,7 @@ var currentDate = moment().format('l');
 
  function displayCityInfo(){
   
- var city= $(this).attr("data-name") || pageLoad; 
+ var city= $(this).attr("data-name") || pageLoad || "Flint"; 
 
  var geoCode = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=101220419d85ffb610459f1145df78ff" 
 
