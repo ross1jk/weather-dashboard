@@ -22,7 +22,7 @@ var currentDate = moment().format('l');
 
    $.ajax({
      url: queryURL, 
-     methond: "GET"
+     method: "GET"
    }).then(function(response){
     //current
     let currentWeather = "https://openweathermap.org/img/wn/" + response.current.weather[0].icon + "@2x.png"; 
@@ -133,22 +133,3 @@ $(document).ready(displayCityInfo());
 $(document).on("dblclick", ".city", displayCityInfo);
 //end of document.ready*/
 }); 
-
-
-
-
-/*
-Search field/button
-id = citySearch 
-id = searchBtn
-***need to make each city a button
-*Main content: 
-id=cityDisplay //City Heading with date image of that temp//all one, 
-this is same size different lines - 
-
-Temp F, Humidtity %, windspeed MPH, UV index text is highlighted
-id=temperature
-id=humidity
-id=windSpeed
-id=uvIndex;
-*5-Day Forecast */
