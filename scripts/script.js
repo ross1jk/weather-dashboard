@@ -2,12 +2,13 @@ $(function() {
 
 //Initial array of cities (set from local storage memory)
 var cityHistory = JSON.parse(localStorage.getItem("cities")) || []; 
+var pageLoad = JSON.parse(localStorage.getItem("lastsearch")); 
 //current date code need to find a better option 
 var currentDate = moment().format('l'); 
 
  function displayCityInfo(){
   
- var city= $(this).attr("data-name") || "Flint"; 
+ var city= $(this).attr("data-name") || pageLoad; 
 
  var geoCode = "https://api.openweathermap.org/geo/1.0/direct?q=" + city + "&limit=1&appid=101220419d85ffb610459f1145df78ff" 
 
@@ -102,22 +103,34 @@ $("#searchBtn").on("click", function(event) {
     event.stopPropagation();
     // This line grabs the input from the textbox
     var city = $("#citySearch").val().trim();
-    //search button value
-     $("#searchBtn").attr("data-name", city); 
+    var cityNotFound = -1
+    if  (cityHistory.length != 0) {
+      var cityNotFound = JSON.parse(localStorage["cities"].indexOf(city));
+    }
+    if (cityNotFound == -1 ) {
     // The city from the textbox is then added to array
     cityHistory.push(city);
     localStorage.setItem("cities", JSON.stringify(cityHistory)); 
+    }
+    //search button value
+     $("#searchBtn").attr("data-name", city); 
     //create button
     var b = $("<button>");
     b.addClass("city btn btn-light");
     b.attr("data-name", city);
     b.text(city);
+
+    if (cityNotFound == -1) {
     $("#pastCities").append(b); 
+    }
+
+    //local storage for page load 
+    localStorage.setItem("lastsearch", JSON.stringify(city)); 
    }
    );
   
 $(document).ready(displayCityInfo()); 
-$(document).on("click", ".city", displayCityInfo);
+$(document).on("dblclick", ".city", displayCityInfo);
 //end of document.ready*/
 }); 
 
