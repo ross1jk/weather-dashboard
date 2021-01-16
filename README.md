@@ -37,7 +37,7 @@ https://ross1jk.github.io/weather-dashboard/
 
 The following image shows the application’s basic functionality:
 
-(./images/weatherdashboardmockup.png)
+![Weather Dashboard Mockup](./images/weatherdashboardmockup.png)
 
 # Weather Dashboard Code Breakdown 
 
