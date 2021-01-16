@@ -65,28 +65,24 @@ var currentDate = moment().format('l');
      url: uvi, 
      method: "GET"
    }).then(function(response){
-    var index;
-    index = response.value; 
-    $("#uvIndex").text("UV Index: " + index); 
-    if (index == "1" || "2") {
-        $("#uvIndex").css("background-color", "green");
-    }else if (index == "3" || "4" || "5"){
-      $("#uvIndex").css("background-color", "yellow");
-    }else if (index == "6" || "7"){
-      $("#uvIndex").css("background-color", "orange");
-    }else if (index == "8" || "9" || "10"){
-      $("#uvIndex").css("background-color", "red");
-    }else{
-      $("#uvIndex").css("background-color", "purple");
-    }
+    let index = response.value; 
+    $("#uv").text(index); 
+    if (index  <= 3) {
+        $("#uv").css("background-color", "green");
+    }else if (index >= 3 && index <= 6) {
+      $("#uv").css("background-color", "yellow");
+     }else if (index >= 7 && index <= 8){
+      $("#uv").css("background-color", "orange");
+    }else if (index >= 8 && index <= 11){
+       $("#uv").css("background-color", "red");
+     }else{
+       $("#uv").css("background-color", "purple");
+  }
 
    });
-
 
    });
   };
-
- 
 
 //Intial appending of buttons from local storage
 for (var i = 0; i < cityHistory.length; i++) {
